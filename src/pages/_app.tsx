@@ -3,7 +3,7 @@ import React from "react";
 import type { AppProps } from "next/app";
 
 // COMPONENTS
-import { Navbar } from "../components/Navbar/Navbar";
+import { Navbar } from "@components/Navbar/Navbar";
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (

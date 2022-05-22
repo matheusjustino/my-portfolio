@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useMemo, useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -6,10 +6,11 @@ import { AiOutlineClose, AiOutlineMail, AiOutlineMenu } from "react-icons/ai";
 import { FaGithub, FaLinkedinIn } from "react-icons/fa";
 import { BsFillPersonLinesFill } from "react-icons/bs";
 
-import NestjsLogo from "../../../public/assets/skills/nestjs.png";
+import NestjsLogo from "@assets/skills/nestjs.png";
 
 const Navbar: React.FC = () => {
   const [nav, setNav] = useState(false);
+  const NavbarLogo = useMemo(() => NestjsLogo, []);
 
   const handleNav = () => setNav(!nav);
 
@@ -18,21 +19,21 @@ const Navbar: React.FC = () => {
       {/** medium/large navbar */}
       <div className="flex justify-between items-center w-full h-full px-2 2xl:px-16">
         <Link href="/">
-          <Image width="65" height="65" src={NestjsLogo} alt="Navbar logo" />
+          <Image width="65" height="65" src={NavbarLogo} alt="Navbar logo" />
         </Link>
 
         <div>
           <ul className="hidden md:flex">
-            <Link href="/">
+            <Link href="#home">
               <li className="ml-10 text-sm uppercase hover:border-b">Home</li>
             </Link>
-            <Link href="/">
+            <Link href="#about">
               <li className="ml-10 text-sm uppercase hover:border-b">About</li>
             </Link>
-            <Link href="/">
+            <Link href="#skills">
               <li className="ml-10 text-sm uppercase hover:border-b">Skills</li>
             </Link>
-            <Link href="/">
+            <Link href="#projects">
               <li className="ml-10 text-sm uppercase hover:border-b">
                 Projects
               </li>
@@ -88,16 +89,16 @@ const Navbar: React.FC = () => {
 
           <div className="py-4 flex-col">
             <ul className="uppercase">
-              <Link href="/">
+              <Link href="#home">
                 <li className="py-4 text:sm">Home</li>
               </Link>
-              <Link href="/">
+              <Link href="#about">
                 <li className="py-4 text:sm">About</li>
               </Link>
-              <Link href="/">
+              <Link href="#skills">
                 <li className="py-4 text:sm">Skills</li>
               </Link>
-              <Link href="/">
+              <Link href="#projects">
                 <li className="py-4 text:sm">Projects</li>
               </Link>
               <Link href="/">
