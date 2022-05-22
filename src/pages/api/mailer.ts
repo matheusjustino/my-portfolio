@@ -10,7 +10,7 @@ export default async function handler(req: any, res: any) {
       user: process.env.NEXT_PUBLIC_EMAIL_FROM,
       pass: process.env.NEXT_PUBLIC_EMAIL_PASS,
     },
-    secure: true,
+    secure: false,
   });
 
   transporter.sendMail(
@@ -29,12 +29,6 @@ ${message}
       if (err) {
         res.status(400).end(
           JSON.stringify({
-            env: [
-              process.env.NEXT_PUBLIC_SMTP_PORT,
-              process.env.NEXT_PUBLIC_SMTP_HOST,
-              process.env.NEXT_PUBLIC_EMAIL_FROM,
-              process.env.NEXT_PUBLIC_EMAIL_TO,
-            ],
             message: err,
           })
         );
