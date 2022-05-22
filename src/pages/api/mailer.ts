@@ -27,7 +27,17 @@ ${message}
     },
     function (err, inf) {
       if (err) {
-        res.status(400).end(JSON.stringify({ message: err }));
+        res.status(400).end(
+          JSON.stringify({
+            env: [
+              process.env.NEXT_PUBLIC_SMTP_PORT,
+              process.env.NEXT_PUBLIC_SMTP_HOST,
+              process.env.NEXT_PUBLIC_EMAIL_FROM,
+              process.env.NEXT_PUBLIC_EMAIL_TO,
+            ],
+            message: err,
+          })
+        );
       } else {
         res.status(200).end(JSON.stringify({ message: "Email enviado!" }));
       }
