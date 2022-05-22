@@ -1,17 +1,75 @@
 /* eslint-disable @next/next/no-img-element */
 import Link from "next/link";
-import React from "react";
+import React, { useState } from "react";
+import { useAlert } from "react-alert";
 import { AiOutlineMail } from "react-icons/ai";
 import { BsFillPersonLinesFill } from "react-icons/bs";
 import { FaGithub, FaLinkedinIn } from "react-icons/fa";
 import { HiOutlineChevronDoubleUp } from "react-icons/hi";
 
+// COMPONENTS
+import { Loading } from "@components/Loading/Loading";
+import { sendMail } from "services/api";
+
+export interface FormFields {
+  name: string;
+  phone: string;
+  email: string;
+  subject: string;
+  message: string;
+}
+
 const Contact: React.FC = () => {
+  const [loading, setLoading] = useState(false);
+  const alert = useAlert();
+
   const contactImgUrl =
     "https://images.unsplash.com/photo-1516387938699-a93567ec168e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2671&q=80";
 
+  const isFormValid = (formValues: FormFields) => {
+    return Object.values(formValues).reduce((prev, curr) => {
+      return !!curr && prev;
+    }, true);
+  };
+
+  const handleOnSubmit = async (event: any) => {
+    event.preventDefault();
+
+    const formValues: FormFields = {
+      name: event.target.name.value,
+      phone: event.target.phone.value,
+      email: event.target.email.value,
+      subject: event.target.subject.value,
+      message: event.target.message.value,
+    };
+
+    if (!isFormValid(formValues)) {
+      alert.info("Preencha todos os campos");
+      return;
+    }
+
+    try {
+      setLoading(true);
+
+      const apiResponse = await sendMail(formValues);
+
+      if (apiResponse >= 400) {
+        alert.error("Erro ao tentar enviar o email");
+      } else {
+        alert.show("Email enviado com sucesso");
+      }
+    } catch (error) {
+      alert.error("Erro ao tentar enviar o email");
+    } finally {
+      event.target.reset();
+      setLoading(false);
+    }
+  };
+
   return (
     <div id="contact" className="w-full lg:h-screen">
+      {loading ? <Loading /> : null}
+
       <div className="max-w-[1240px] m-auto px-2 py-16 w-full">
         <p className="mt-8 text-xl tracking-widest uppercase text-[#5651e5]">
           Contect
@@ -57,13 +115,14 @@ const Contact: React.FC = () => {
           {/** right side */}
           <div className="col-span-3 w-full shadow-xl shadow-gray-400 rounded-xl lg:p-4">
             <div className="p-4">
-              <form>
+              <form onSubmit={handleOnSubmit}>
                 <div className="grid md:grid-cols-2 gap-4 w-full py-2">
                   <div className="flex flex-col">
                     <label className="uppercase text-sm py-2">Name</label>
                     <input
                       className="border-2 rounded-lg p-3 flex border-gray-300"
                       type="text"
+                      name="name"
                     />
                   </div>
 
@@ -74,6 +133,7 @@ const Contact: React.FC = () => {
                     <input
                       className="border-2 rounded-lg p-3 flex border-gray-300"
                       type="text"
+                      name="phone"
                     />
                   </div>
                 </div>
@@ -83,6 +143,7 @@ const Contact: React.FC = () => {
                   <input
                     className="border-2 rounded-lg p-3 flex border-gray-300"
                     type="email"
+                    name="email"
                   />
                 </div>
 
@@ -91,6 +152,7 @@ const Contact: React.FC = () => {
                   <input
                     className="border-2 rounded-lg p-3 flex border-gray-300"
                     type="text"
+                    name="subject"
                   />
                 </div>
 
@@ -99,6 +161,7 @@ const Contact: React.FC = () => {
                   <textarea
                     className="border-r rounded-lg p-3 border-gray-300"
                     rows={10}
+                    name="message"
                   ></textarea>
                 </div>
 
