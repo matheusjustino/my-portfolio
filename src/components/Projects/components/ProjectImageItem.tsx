@@ -5,8 +5,8 @@ export interface ProjectImageItemInterface {
   name: string;
   description: string;
   technology: string;
-  demo: string | null;
-  repository: string | null;
+  demo: string | undefined;
+  repository: string | undefined;
   img: StaticImageData;
 }
 

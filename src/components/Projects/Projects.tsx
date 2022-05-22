@@ -30,7 +30,7 @@ const Projects: React.FC = () => {
         description:
           "Projeto frontend de um sistema de controle financeiro feito com React",
         technology: "ReactJs",
-        demo: null,
+        demo: undefined,
         repository: `${baseGithubUrl}/expense-system-frontend`,
         img: controleFinanceiro,
       },
@@ -39,7 +39,7 @@ const Projects: React.FC = () => {
         description:
           "Projeto backend para estudo de devops com Argo CD e Golang",
         technology: "ArgoCD",
-        demo: null,
+        demo: undefined,
         repository: `${baseGithubUrl}/argoCD-golang`,
         img: argocdGolang,
       },
@@ -48,7 +48,7 @@ const Projects: React.FC = () => {
         description:
           "Projeto backend de um ecommerce feito com Node e o framework NestJs",
         technology: "NestJs",
-        demo: null,
+        demo: undefined,
         repository: `${baseGithubUrl}/ecommerce-backend`,
         img: backendEcommerce,
       },

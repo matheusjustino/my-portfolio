@@ -1,5 +1,5 @@
-import Image from "next/image";
 import React from "react";
+import Image, { StaticImageData } from "next/image";
 
 interface ImageSkillsProps {
   name: string;
