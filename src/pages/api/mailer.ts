@@ -10,7 +10,7 @@ export default async function handler(req: any, res: any) {
       user: process.env.NEXT_PUBLIC_EMAIL_FROM,
       pass: process.env.NEXT_PUBLIC_EMAIL_PASS,
     },
-    secure: false,
+    secure: true,
   });
 
   transporter.sendMail(
