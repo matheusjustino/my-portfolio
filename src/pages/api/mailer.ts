@@ -27,10 +27,7 @@ ${message}
     },
     function (err, inf) {
       if (err) {
-        console.log({ err });
-        res
-          .status(400)
-          .end(JSON.stringify({ message: "Erro ao tentar enviar o email" }));
+        res.status(400).end(JSON.stringify({ message: err }));
       } else {
         res.status(200).end(JSON.stringify({ message: "Email enviado!" }));
       }
