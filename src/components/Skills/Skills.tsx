@@ -44,7 +44,6 @@ const Skills: React.FC = () => {
         <p className="text-xl tracking-widest uppercase text-[#5651e5]">
           Skills
         </p>
-
         <h2 className="py-4">My technical skills</h2>
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 py-4">
           {allImagesSkills.map((is) => {

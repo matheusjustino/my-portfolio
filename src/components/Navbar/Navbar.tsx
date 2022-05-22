@@ -1,4 +1,10 @@
-import React, { useMemo, useRef, useState } from "react";
+import React, {
+  useCallback,
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
+} from "react";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -10,14 +16,39 @@ import NestjsLogo from "@assets/skills/nestjs.png";
 
 const Navbar: React.FC = () => {
   const [nav, setNav] = useState(false);
+  const [shadow, setShadow] = useState(false);
+
   const NavbarLogo = useMemo(() => NestjsLogo, []);
+  const handleShadow = useCallback(() => {
+    // Evitando re-renders caso o shadow já seja true
+    if (window.scrollY >= 90 && !shadow) {
+      setShadow(true);
+      return;
+    }
+
+    // Evitando re-renders caso o shadow já seja false
+    if (window.scrollY < 90 && shadow) {
+      setShadow(false);
+      return;
+    }
+  }, [shadow]);
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleShadow);
+
+    return () => window.removeEventListener("scroll", handleShadow);
+  }, [handleShadow]);
 
   const handleNav = () => setNav(!nav);
 
   return (
-    <div className="fixed w-full h-20 shadow-xl z-[100]">
+    <div
+      className={`fixed w-full h-20 ${shadow ? "shadow-xl" : ""} z-[100] bg-[${
+        shadow ? "#ecf0f3" : "transparent"
+      }]`}
+    >
       {/** medium/large navbar */}
-      <div className="flex justify-between items-center w-full h-full px-2 2xl:px-16">
+      <div className="flex justify-between items-center w-full h-full px-2 2xl:px-16 cursor-pointer">
         <Link href="/">
           <Image width="65" height="65" src={NavbarLogo} alt="Navbar logo" />
         </Link>
@@ -38,7 +69,7 @@ const Navbar: React.FC = () => {
                 Projects
               </li>
             </Link>
-            <Link href="/">
+            <Link href="#contact">
               <li className="ml-10 text-sm uppercase hover:border-b">
                 Contact
               </li>
@@ -90,19 +121,29 @@ const Navbar: React.FC = () => {
           <div className="py-4 flex-col">
             <ul className="uppercase">
               <Link href="#home">
-                <li className="py-4 text:sm">Home</li>
+                <li onClick={handleNav} className="py-4 text:sm">
+                  Home
+                </li>
               </Link>
               <Link href="#about">
-                <li className="py-4 text:sm">About</li>
+                <li onClick={handleNav} className="py-4 text:sm">
+                  About
+                </li>
               </Link>
               <Link href="#skills">
-                <li className="py-4 text:sm">Skills</li>
+                <li onClick={handleNav} className="py-4 text:sm">
+                  Skills
+                </li>
               </Link>
               <Link href="#projects">
-                <li className="py-4 text:sm">Projects</li>
+                <li onClick={handleNav} className="py-4 text:sm">
+                  Projects
+                </li>
               </Link>
-              <Link href="/">
-                <li className="py-4 text:sm">Contact</li>
+              <Link href="#contact">
+                <li onClick={handleNav} className="py-4 text:sm">
+                  Contact
+                </li>
               </Link>
             </ul>
           </div>
