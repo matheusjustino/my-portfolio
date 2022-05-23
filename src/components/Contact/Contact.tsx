@@ -104,16 +104,32 @@ const Contact: React.FC = () => {
                 <p className="uppercase pt-8">Connect with me</p>
                 <div className="flex items-center justify-between py-4">
                   <div className="rounded-full shadow-lg shadow-gray-400 p-6 cursor-pointer hover:scale-110 ease-in duration-300">
-                    <FaLinkedinIn />
+                    <a
+                      href="https://www.linkedin.com/in/matheus-henrique-fernandes-justino/"
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      <FaLinkedinIn />
+                    </a>
                   </div>
                   <div className="rounded-full shadow-lg shadow-gray-400 p-6 cursor-pointer hover:scale-110 ease-in duration-300">
-                    <FaGithub />
+                    <a
+                      href="https://github.com/matheusjustino"
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      <FaGithub />
+                    </a>
                   </div>
                   <div className="rounded-full shadow-lg shadow-gray-400 p-6 cursor-pointer hover:scale-110 ease-in duration-300">
-                    <AiOutlineMail />
+                    <Link href="#contact">
+                      <AiOutlineMail />
+                    </Link>
                   </div>
                   <div className="rounded-full shadow-lg shadow-gray-400 p-6 cursor-pointer hover:scale-110 ease-in duration-300">
-                    <BsFillPersonLinesFill />
+                    <Link href="#contact">
+                      <BsFillPersonLinesFill />
+                    </Link>
                   </div>
                 </div>
               </div>

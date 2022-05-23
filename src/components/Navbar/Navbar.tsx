@@ -55,7 +55,7 @@ const Navbar: React.FC = () => {
 
         <div>
           <ul className="hidden md:flex">
-            <Link href="#home">
+            <Link href="#/">
               <li className="ml-10 text-sm uppercase hover:border-b hover:text-[#5651e5]">
                 Home
               </li>
@@ -126,7 +126,7 @@ const Navbar: React.FC = () => {
 
           <div className="py-4 flex-col">
             <ul className="uppercase">
-              <Link href="#home">
+              <Link href="/">
                 <li onClick={handleNav} className="py-4 text:sm">
                   Home
                 </li>
@@ -160,16 +160,32 @@ const Navbar: React.FC = () => {
             </p>
             <div className="flex items-center justify-between my-4 w-full sm:w-[80%]">
               <div className="rounded-full shadow-lg shadow-gray-400 p-3 cursor-pointer hover:scale-105 ease-in duration-300">
-                <FaLinkedinIn />
+                <a
+                  href="https://www.linkedin.com/in/matheus-henrique-fernandes-justino/"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <FaLinkedinIn />
+                </a>
               </div>
               <div className="rounded-full shadow-lg shadow-gray-400 p-3 cursor-pointer hover:scale-105 ease-in duration-300">
-                <FaGithub />
+                <a
+                  href="https://github.com/matheusjustino"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <FaGithub />
+                </a>
               </div>
               <div className="rounded-full shadow-lg shadow-gray-400 p-3 cursor-pointer hover:scale-105 ease-in duration-300">
-                <AiOutlineMail />
+                <Link href="#contact">
+                  <AiOutlineMail />
+                </Link>
               </div>
               <div className="rounded-full shadow-lg shadow-gray-400 p-3 cursor-pointer hover:scale-105 ease-in duration-300">
-                <BsFillPersonLinesFill />
+                <Link href="#contact">
+                  <BsFillPersonLinesFill />
+                </Link>
               </div>
             </div>
           </div>
