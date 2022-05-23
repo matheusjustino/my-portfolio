@@ -1,6 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
-import Link from "next/link";
 import React, { useState } from "react";
+import emailjs from "emailjs-com";
+import Link from "next/link";
 import { useAlert } from "react-alert";
 import { AiOutlineMail } from "react-icons/ai";
 import { BsFillPersonLinesFill } from "react-icons/bs";
@@ -9,7 +10,6 @@ import { HiOutlineChevronDoubleUp } from "react-icons/hi";
 
 // COMPONENTS
 import { Loading } from "@components/Loading/Loading";
-import { sendMail } from "services/api";
 
 export interface FormFields {
   name: string;
@@ -51,14 +51,21 @@ const Contact: React.FC = () => {
     try {
       setLoading(true);
 
-      const apiResponse = await sendMail(formValues);
+      const apiResponse = await emailjs.sendForm(
+        process.env.EMAILJS_SERVICE_ID!,
+        process.env.EMAILJS_TEMPLATE_ID!,
+        event.target,
+        process.env.EMAILJS_PUBLIC_KEY!
+      );
 
-      if (apiResponse >= 400) {
+      if (apiResponse.status >= 400) {
+        console.log(apiResponse.text);
         alert.error("Erro ao tentar enviar o email");
       } else {
         alert.show("Email enviado com sucesso");
       }
     } catch (error) {
+      console.log(error);
       alert.error("Erro ao tentar enviar o email");
     } finally {
       event.target.reset();
