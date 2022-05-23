@@ -79,7 +79,7 @@ const Contact: React.FC = () => {
 
       <div className="max-w-[1240px] m-auto px-2 py-16 w-full">
         <p className="mt-8 text-xl tracking-widest uppercase text-[#5651e5]">
-          Contect
+          Contact
         </p>
         <h2 className="py-4">Get In Touch</h2>
         <div className="grid lg:grid-cols-5 gap-8">
