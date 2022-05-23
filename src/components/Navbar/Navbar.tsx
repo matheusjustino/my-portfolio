@@ -55,7 +55,7 @@ const Navbar: React.FC = () => {
 
         <div>
           <ul className="hidden md:flex">
-            <Link href="#/">
+            <Link href="/">
               <li className="ml-10 text-sm uppercase hover:border-b hover:text-[#5651e5]">
                 Home
               </li>
