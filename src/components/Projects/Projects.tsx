@@ -2,6 +2,7 @@ import React, { useMemo } from "react";
 import Image, { StaticImageData } from "next/image";
 
 // PROJECTS IMAGES
+import pins from "@assets/projects/pins.png";
 import autoescolaLogo from "@assets/projects/auto-escola.png";
 import argocdGolang from "@assets/projects/backend-devops-argocd-golang.png";
 import backendEcommerce from "@assets/projects/backend-ecommerce.png";
@@ -17,6 +18,15 @@ const Projects: React.FC = () => {
   const baseGithubUrl = "https://github.com/matheusjustino";
   const allProjectsImages = useMemo<ProjectImageItemInterface[]>(() => {
     return [
+      {
+        name: "Registre seus Locais",
+        description:
+          "Projeto frontend para registrar os locais que você vistou e achou interessante.",
+        technology: "NextJs, ApolloGraphQL",
+        demo: "https://travel-map-frontend.vercel.app/",
+        repository: `${baseGithubUrl}/travel-map-frontend`,
+        img: pins,
+      },
       {
         name: "Auto Escola",
         description: "Projeto frontend feito com ReactJs",
