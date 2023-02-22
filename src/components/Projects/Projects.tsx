@@ -2,6 +2,7 @@ import React, { useMemo } from "react";
 import Image, { StaticImageData } from "next/image";
 
 // PROJECTS IMAGES
+import bookingApp from "@assets/projects/place-details.png";
 import pins from "@assets/projects/pins.png";
 import autoescolaLogo from "@assets/projects/auto-escola.png";
 import argocdGolang from "@assets/projects/backend-devops-argocd-golang.png";
@@ -18,6 +19,15 @@ const Projects: React.FC = () => {
   const baseGithubUrl = "https://github.com/matheusjustino";
   const allProjectsImages = useMemo<ProjectImageItemInterface[]>(() => {
     return [
+      {
+        name: "Booking App",
+        description:
+          "In this project it is possible to create a place to rent and expose to other users.",
+        technology: "Java, NextJs, TailwindCSS, Redux, Next Redux and etc",
+        demo: "https://booking-app-matheusjustino.vercel.app",
+        repository: `${baseGithubUrl}/booking-app`,
+        img: bookingApp,
+      },
       {
         name: "Registre seus Locais",
         description:
