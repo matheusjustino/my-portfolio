@@ -2,7 +2,7 @@ import React, { useMemo } from "react";
 import Image, { StaticImageData } from "next/image";
 
 // PROJECTS IMAGES
-import bookingApp from "@assets/projects/place-details.png";
+import airbnbFake from "@assets/projects/airbnb-fake.png";
 import pins from "@assets/projects/pins.png";
 import autoescolaLogo from "@assets/projects/auto-escola.png";
 import argocdGolang from "@assets/projects/backend-devops-argocd-golang.png";
@@ -16,17 +16,18 @@ import {
 } from "./components/ProjectImageItem";
 
 const Projects: React.FC = () => {
-  const baseGithubUrl = "https://github.com/matheusjustino";
+  const baseGithubUrl = Object.freeze("https://github.com/matheusjustino");
   const allProjectsImages = useMemo<ProjectImageItemInterface[]>(() => {
     return [
       {
-        name: "Booking App",
+        name: "Airbnb Fake",
         description:
-          "In this project it is possible to create a place to rent and expose to other users.",
-        technology: "Java, NextJs, TailwindCSS, Redux, Next Redux and etc",
-        demo: "https://booking-app-matheusjustino.vercel.app",
-        repository: `${baseGithubUrl}/booking-app`,
-        img: bookingApp,
+          `This is a fake Airbnb. It is possible to create an account, list properties,
+          post your properties, favorite and book for a period of time.`,
+        technology: "NextJs, NextAuth, Auth0, TailwindCSS, Next Cloudinary, Leaflet, Prisma and MongoDB",
+        demo: "https://airbnb-fake.vercel.app",
+        repository: `${baseGithubUrl}/airbnb-fake`,
+        img: airbnbFake,
       },
       {
         name: "Registre seus Locais",
