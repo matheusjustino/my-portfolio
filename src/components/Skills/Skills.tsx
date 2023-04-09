@@ -16,6 +16,9 @@ import rabbitmqLogo from "@assets/skills/rabbitmq.png";
 import reactLogo from "@assets/skills/react.png";
 import tailwindLogo from "@assets/skills/tailwind.png";
 import typescriptLogo from "@assets/skills/typescript.png";
+import nextLogo from '@assets/skills/nextjs-icon-svgrepo-com.svg';
+
+// COMPONENTS
 import { ImageSkill } from "./components/ImageSkill";
 
 const Skills: React.FC = () => {
@@ -25,6 +28,7 @@ const Skills: React.FC = () => {
       { name: "CSS", img: cssLogo },
       { name: "TAILWIND", img: tailwindLogo },
       { name: "REACT", img: reactLogo },
+      { name: "NEXT", img: nextLogo },
       { name: "ANGULAR", img: angularLogo },
       { name: "JAVASCRIPT", img: javascriptLogo },
       { name: "TYPESCRIPT", img: typescriptLogo },

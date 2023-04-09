@@ -74,7 +74,7 @@ const Projects: React.FC = () => {
         img: backendEcommerce,
       },
     ];
-  }, []);
+  }, [baseGithubUrl]);
 
   return (
     <div id="projects" className="w-full py-2">
