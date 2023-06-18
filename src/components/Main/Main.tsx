@@ -6,7 +6,7 @@ import { FaGithub, FaLinkedinIn } from "react-icons/fa";
 
 const Main: React.FC = () => {
   const yearsOfExperience = new Date().getFullYear() - new Date("2019-01-02").getFullYear();
-  const text = `I started my career as a programmer in 2019 as an intern and a few
+  const text = `I started my career as a programmer in 2018 as an intern and a few
                 months later I was hired as a junior programmer. Currently, with ${yearsOfExperience} years of
                 experience, I work as a senior programmer focused on the backend, but also with a
                 good experience with frontend development. I worked on projects in the area of
