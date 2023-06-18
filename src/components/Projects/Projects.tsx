@@ -2,6 +2,7 @@ import React, { useMemo } from "react";
 import Image, { StaticImageData } from "next/image";
 
 // PROJECTS IMAGES
+import reddit from "@assets/projects/reddit.png";
 import airbnbFake from "@assets/projects/airbnb-fake.png";
 import pins from "@assets/projects/pins.png";
 import autoescolaLogo from "@assets/projects/auto-escola.png";
@@ -20,11 +21,22 @@ const Projects: React.FC = () => {
   const allProjectsImages = useMemo<ProjectImageItemInterface[]>(() => {
     return [
       {
+        name: "Reddit",
+        description: `This application tries to replicate the main features of the Reddit forum. It's possible
+          to view communities, community posts, a specific post, make comments and vote on posts
+          and comments, just create an account using Google.`,
+        technology:
+          "NextJs, NextAuth, TailwindCSS, Shadcn-ui, Prisma, MySQL, Uploadthing and Upstash",
+        demo: "https://reddit-fullstack-app.vercel.app",
+        repository: `${baseGithubUrl}/reddit-fullstack-app`,
+        img: reddit,
+      },
+      {
         name: "Airbnb Fake",
-        description:
-          `This is a fake Airbnb. It is possible to create an account, list properties,
+        description: `This is a fake Airbnb. It is possible to create an account, list properties,
           post your properties, favorite and book for a period of time.`,
-        technology: "NextJs, NextAuth, Auth0, TailwindCSS, Next Cloudinary, Leaflet, Prisma and MongoDB",
+        technology:
+          "NextJs, NextAuth, Auth0, TailwindCSS, Next Cloudinary, Leaflet, Prisma and MongoDB",
         demo: "https://airbnb-fake.vercel.app",
         repository: `${baseGithubUrl}/airbnb-fake`,
         img: airbnbFake,
