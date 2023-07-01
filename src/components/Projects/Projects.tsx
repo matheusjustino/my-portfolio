@@ -37,7 +37,7 @@ const Projects: React.FC = () => {
           post your properties, favorite and book for a period of time.`,
         technology:
           "NextJs, NextAuth, Auth0, TailwindCSS, Next Cloudinary, Leaflet, Prisma and MongoDB",
-        demo: "https://airbnb-fake.vercel.app",
+        demo: undefined,
         repository: `${baseGithubUrl}/airbnb-fake`,
         img: airbnbFake,
       },
