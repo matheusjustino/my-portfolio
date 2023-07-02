@@ -27,7 +27,7 @@ const Projects: React.FC = () => {
           and comments, just create an account using Google.`,
         technology:
           "NextJs, NextAuth, TailwindCSS, Shadcn-ui, Prisma, MySQL, Uploadthing and Upstash",
-        demo: "https://reddit-fullstack-app.vercel.app",
+        demo: undefined,
         repository: `${baseGithubUrl}/reddit-fullstack-app`,
         img: reddit,
       },
@@ -37,7 +37,7 @@ const Projects: React.FC = () => {
           post your properties, favorite and book for a period of time.`,
         technology:
           "NextJs, NextAuth, Auth0, TailwindCSS, Next Cloudinary, Leaflet, Prisma and MongoDB",
-        demo: undefined,
+        demo: 'https://airbnb-fake.vercel.app',
         repository: `${baseGithubUrl}/airbnb-fake`,
         img: airbnbFake,
       },
