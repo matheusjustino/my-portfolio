@@ -3,6 +3,7 @@ import Image, { StaticImageData } from "next/image";
 
 // PROJECTS IMAGES
 import reddit from "@assets/projects/reddit.png";
+import shareme from "@assets/projects/shareme.png";
 import airbnbFake from "@assets/projects/airbnb-fake.png";
 import pins from "@assets/projects/pins.png";
 import autoescolaLogo from "@assets/projects/auto-escola.png";
@@ -32,12 +33,22 @@ const Projects: React.FC = () => {
         img: reddit,
       },
       {
+        name: "Shareme",
+        description: `This is an image sharing application. It's possible to create an account to post your images,
+        search for other users and see their posts, in addition to commenting and liking other posts.`,
+        technology:
+          "NextJs, NextAuth, TailwindCSS, Shadcn-ui and C# .Net 7.0 (backend)",
+        demo: undefined,
+        repository: `${baseGithubUrl}/shareme-frontend-csharp`,
+        img: shareme,
+      },
+      {
         name: "Airbnb Fake",
         description: `This is a fake Airbnb. It is possible to create an account, list properties,
           post your properties, favorite and book for a period of time.`,
         technology:
           "NextJs, NextAuth, Auth0, TailwindCSS, Next Cloudinary, Leaflet, Prisma and MongoDB",
-        demo: 'https://airbnb-fake.vercel.app',
+        demo: "https://airbnb-fake.vercel.app",
         repository: `${baseGithubUrl}/airbnb-fake`,
         img: airbnbFake,
       },
