@@ -1,5 +1,4 @@
-import React, { useMemo } from "react";
-import Image, { StaticImageData } from "next/image";
+import { memo, useMemo } from "react";
 
 // PROJECTS IMAGES
 import threads from "@assets/projects/threads.png";
@@ -18,7 +17,7 @@ import {
   ProjectImageItemInterface,
 } from "./components/ProjectImageItem";
 
-const Projects: React.FC = () => {
+const Projects: React.FC = memo(() => {
   const baseGithubUrl = Object.freeze("https://github.com/matheusjustino");
   const allProjectsImages = useMemo<ProjectImageItemInterface[]>(() => {
     return [
@@ -125,6 +124,8 @@ const Projects: React.FC = () => {
       </div>
     </div>
   );
-};
+});
+
+Projects.displayName = "Projects";
 
 export { Projects };

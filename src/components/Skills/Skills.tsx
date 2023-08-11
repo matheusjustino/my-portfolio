@@ -1,5 +1,4 @@
-import Image from "next/image";
-import React, { useMemo } from "react";
+import { memo, useMemo } from "react";
 
 // IMAGES SKILLS
 import angularLogo from "@assets/skills/angular.png";
@@ -23,7 +22,7 @@ import dotnetcore from "@assets/skills/dotnetcore.svg";
 // COMPONENTS
 import { ImageSkill } from "./components/ImageSkill";
 
-const Skills: React.FC = () => {
+const Skills: React.FC = memo(() => {
   const allImagesSkills = useMemo(() => {
     return [
       { name: "HTML", img: htmlLogo },
@@ -61,6 +60,8 @@ const Skills: React.FC = () => {
       </div>
     </div>
   );
-};
+});
+
+Skills.displayName = "Skills";
 
 export { Skills };

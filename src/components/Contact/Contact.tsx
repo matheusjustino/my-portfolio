@@ -1,5 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
-import React, { useState } from "react";
+import { useState, memo } from "react";
 import emailjs from "emailjs-com";
 import Link from "next/link";
 import { useAlert } from "react-alert";
@@ -19,7 +19,7 @@ export interface FormFields {
   message: string;
 }
 
-const Contact: React.FC = () => {
+const Contact: React.FC = memo(() => {
   const [loading, setLoading] = useState(false);
   const alert = useAlert();
 
@@ -206,6 +206,8 @@ const Contact: React.FC = () => {
       </div>
     </div>
   );
-};
+});
+
+Contact.displayName = "Contact";
 
 export { Contact };

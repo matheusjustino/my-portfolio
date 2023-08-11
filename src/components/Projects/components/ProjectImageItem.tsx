@@ -1,4 +1,3 @@
-import React from "react";
 import Image, { StaticImageData } from "next/image";
 
 export interface ProjectImageItemInterface {
@@ -21,6 +20,8 @@ const ProjectImageItem: React.FC<ProjectImageItemProps> = ({ data }) => {
         className="rounded-xl group-hover:opacity-10"
         src={data.img}
         alt={`Imagem  do(a) ${data.description}`}
+        priority
+        quality={100}
       />
       <div className="hidden group-hover:block absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%]">
         <h3 className="text-2xl text-white tracking-wider text-center">

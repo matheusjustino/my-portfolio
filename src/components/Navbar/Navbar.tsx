@@ -1,10 +1,4 @@
-import React, {
-  useCallback,
-  useEffect,
-  useMemo,
-  useRef,
-  useState,
-} from "react";
+import { useCallback, useEffect, useMemo, useState, memo } from "react";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -14,7 +8,7 @@ import { BsFillPersonLinesFill } from "react-icons/bs";
 
 import NestjsLogo from "@assets/skills/nestjs.png";
 
-const Navbar: React.FC = () => {
+const Navbar: React.FC = memo(() => {
   const [nav, setNav] = useState(false);
   const [shadow, setShadow] = useState(false);
 
@@ -50,7 +44,14 @@ const Navbar: React.FC = () => {
       {/** medium/large navbar */}
       <div className="flex justify-between items-center w-full h-full px-2 2xl:px-16 cursor-pointer">
         <Link href="/">
-          <Image width="65" height="65" src={NavbarLogo} alt="Navbar logo" />
+          <Image
+            width="65"
+            height="65"
+            src={NavbarLogo}
+            alt="Navbar logo"
+            priority
+            quality={100}
+          />
         </Link>
 
         <div>
@@ -108,6 +109,8 @@ const Navbar: React.FC = () => {
                 height="44"
                 src={NestjsLogo}
                 alt="Navbar logo"
+                priority
+                quality={100}
               />
               <div
                 onClick={handleNav}
@@ -193,6 +196,8 @@ const Navbar: React.FC = () => {
       </div>
     </div>
   );
-};
+});
+
+Navbar.displayName = "Navbar";
 
 export { Navbar };
