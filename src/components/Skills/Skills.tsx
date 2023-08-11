@@ -16,7 +16,9 @@ import rabbitmqLogo from "@assets/skills/rabbitmq.png";
 import reactLogo from "@assets/skills/react.png";
 import tailwindLogo from "@assets/skills/tailwind.png";
 import typescriptLogo from "@assets/skills/typescript.png";
-import nextLogo from '@assets/skills/nextjs-icon-svgrepo-com.svg';
+import nextLogo from "@assets/skills/nextjs-icon-svgrepo-com.svg";
+import csharpLogo from "@assets/skills/csharp.svg";
+import dotnetcore from "@assets/skills/dotnetcore.svg";
 
 // COMPONENTS
 import { ImageSkill } from "./components/ImageSkill";
@@ -39,6 +41,8 @@ const Skills: React.FC = () => {
       { name: "DOCKER", img: dockerLogo },
       { name: "RABBITMQ", img: rabbitmqLogo },
       { name: "GITHUB", img: githubLogo },
+      { name: "C#", img: csharpLogo },
+      { name: ".NET Core", img: dotnetcore },
     ];
   }, []);
 

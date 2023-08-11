@@ -2,6 +2,7 @@ import React, { useMemo } from "react";
 import Image, { StaticImageData } from "next/image";
 
 // PROJECTS IMAGES
+import threads from "@assets/projects/threads.png";
 import reddit from "@assets/projects/reddit.png";
 import shareme from "@assets/projects/shareme.png";
 import airbnbFake from "@assets/projects/airbnb-fake.png";
@@ -41,6 +42,16 @@ const Projects: React.FC = () => {
         demo: undefined,
         repository: `${baseGithubUrl}/shareme-frontend-csharp`,
         img: shareme,
+      },
+      {
+        name: "Threads",
+        description: `This is an application where users can register and make posts to interact with other users.
+        In addition, it's also possible to create, participate and publish in communities.`,
+        technology:
+          "NextJs, Clerk, TailwindCSS, Shadcn-ui, Vercel PostgreSQL, C# .NET 7.0",
+        demo: undefined,
+        repository: `${baseGithubUrl}/threads-frontend`,
+        img: threads,
       },
       {
         name: "Airbnb Fake",
